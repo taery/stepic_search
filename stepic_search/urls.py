@@ -15,30 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from rest_framework import serializers, viewsets, routers
-from searchengine.models import Lesson
 
-
-class LessonSerializer(serializers.BaseSerializer):
-
-    def to_representation(self, instance):
-        self.id = instance.id
-        self.tite = instance.title
-
-    class Meta:
-        model = Lesson
-        fields = ('id', 'title')
-
-
-class LessonViewSet(viewsets.ModelViewSet):
-    queryset = Lesson.objects.all()
-    serializer_class = LessonSerializer
-
-
-router = routers.DefaultRouter()
-router.register(r'lessons', LessonViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
 ]

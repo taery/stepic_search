@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Lesson',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigIntegerField(serialize=False, primary_key=True)),
                 ('title', models.CharField(max_length=255)),
             ],
         ),

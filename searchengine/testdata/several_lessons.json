@@ -1,0 +1,113 @@
+{
+    "lessons": [
+        {
+            "actions": {},
+            "create_date": "2013-09-20T14:35:44Z",
+            "dependencies": [],
+            "followers": [],
+            "id": 1,
+            "is_featured": false,
+            "is_prime": false,
+            "is_public": false,
+            "language": "en",
+            "learners_group": null,
+            "owner": 3,
+            "passed_by": 15989,
+            "playlists": [],
+            "progress": null,
+            "slug": "A-Journey-of-a-Thousand-Miles-1",
+            "steps": [
+                541,
+                1053,
+                92,
+                4,
+                443
+            ],
+            "subscriptions": [
+                "31-76-1",
+                "30-76-1"
+            ],
+            "tags": [],
+            "teachers_group": null,
+            "title": "A Journey of a Thousand Miles. . .",
+            "update_date": "2014-12-11T14:41:07Z",
+            "viewed_by": 15989
+        },
+        {
+            "actions": {},
+            "create_date": "2013-09-20T14:36:20Z",
+            "dependencies": [],
+            "followers": [],
+            "id": 5,
+            "is_featured": false,
+            "is_prime": false,
+            "is_public": false,
+            "language": "en",
+            "learners_group": null,
+            "owner": 3,
+            "passed_by": 4014,
+            "playlists": [],
+            "progress": null,
+            "slug": "Hidden-Messages-in-the-Replication-Origin-2",
+            "steps": [
+                9,
+                2391,
+                12,
+                8878,
+                781,
+                8826,
+                8889,
+                8906,
+                480,
+                8905,
+                782,
+                783,
+                784
+            ],
+            "subscriptions": [
+                "31-76-2",
+                "30-76-2"
+            ],
+            "tags": [],
+            "teachers_group": null,
+            "title": "Hidden Messages in the Replication Origin",
+            "update_date": "2014-12-11T14:41:09Z",
+            "viewed_by": 4729
+        },
+        {
+            "actions": {},
+            "create_date": "2013-09-20T14:36:25Z",
+            "dependencies": [],
+            "followers": [],
+            "id": 3,
+            "is_featured": false,
+            "is_prime": false,
+            "is_public": false,
+            "language": "en",
+            "learners_group": null,
+            "owner": 3,
+            "passed_by": 4377,
+            "playlists": [],
+            "progress": null,
+            "slug": "Some-Hidden-Messages-are-More-Surprising-than-Others-3",
+            "steps": [
+                21,
+                146,
+                785,
+                26,
+                147,
+                619,
+                786
+            ],
+            "subscriptions": [
+                "31-76-3",
+                "30-76-3"
+            ],
+            "tags": [],
+            "teachers_group": null,
+            "title": "Some Hidden Messages are More Surprising than Others",
+            "update_date": "2014-12-11T14:41:09Z",
+            "viewed_by": 7012
+        }
+    ]
+}
