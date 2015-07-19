@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>All lessons list</title>
+</head>
+<body>
+<ul id="sortable">
+    {% for l in lessons %}
+    <li id="{{ l.id }}">
+        <div>
+            <a href="http://stepic.org/lesson/{{ l.id  }}">{{l.id}}: {{l.title }}</a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

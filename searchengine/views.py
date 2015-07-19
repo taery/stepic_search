@@ -1,3 +1,30 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.views.generic import ListView
+from searchengine.models import Lesson
+from searchengine.forms import SearchForm
 
-# Create your views here.
+
+class LessonListView(ListView):
+    model = Lesson
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'lesson_list.html', {"lessons": Lesson.objects.all()})
+
+
+def get_search_text(request):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            # todo handle search request
+            return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = SearchForm()
+
+    return render(request, 'search.html', {'form': form})
+
+
+def get_last_page(request):
+    return render(request, 'thanks.html')
