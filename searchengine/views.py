@@ -16,8 +16,10 @@ def get_search_text(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
-            # todo handle search request
-            return HttpResponseRedirect('/thanks/')
+            if request.POST['search_text']:
+                return HttpResponseRedirect('/thanks/')
+            else:
+                return HttpResponseRedirect('/lessons/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
