@@ -4,3 +4,4 @@ searchengine/__pycache__
 searchengine/management/commands/__pycache__
 db.sqlite3
 searchengine/migrations/__pycache__
+*.pyc

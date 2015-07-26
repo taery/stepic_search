@@ -5,6 +5,11 @@
     <title>All lessons list</title>
 </head>
 <body>
+<form action="/search/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Мне повезет"/>
+</form>
 <ul id="sortable">
     {% for l in lessons %}
     <li id="{{ l.id }}">

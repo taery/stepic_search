@@ -1,23 +1,25 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
 from searchengine.models import Lesson
 from searchengine.forms import SearchForm
+from searchengine.searchclient import search
 
 
 class LessonListView(ListView):
     model = Lesson
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'lesson_list.html', {"lessons": Lesson.objects.all()})
+        return render(request, 'lesson_list.html', {'form': SearchForm(), 'lessons': Lesson.objects.all()})
 
 
 def get_search_text(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
-            if request.POST['search_text']:
-                return HttpResponseRedirect('/thanks/')
+            text_to_search = request.POST['search_text']
+            if text_to_search:
+                return render(request, 'lesson_list.html', {'form': form, 'lessons': search(text_to_search)})
             else:
                 return HttpResponseRedirect('/lessons/')
 

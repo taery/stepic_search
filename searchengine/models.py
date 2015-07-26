@@ -1,8 +1,8 @@
 from django.db import models
-from django_elasticsearch.models import EsIndexable
+# from elasticsearch import Elasticsearch
 
 
-class Lesson(EsIndexable, models.Model):
+class Lesson(models.Model):
     id = models.BigIntegerField(primary_key=True)
     title = models.CharField(max_length=255)
 
