@@ -1,35 +1,17 @@
 from django.core.management import BaseCommand
-from searchengine.models import Lesson
-
-data = {
-    "settings": {
-        "number_of_shards": 4,
-        "number_of_replicas": 1
-    },
-    "mappings": {
-        "lesson": {
-            "properties": {
-                "title": {"type": "string", "boost": 4},
-            }
-        }
-    }
-}
+from searchengine.models import LessonMapping
 
 
 class Command(BaseCommand):
     help = 'Creates lesson titles index'
 
     def handle(self, *args, **options):
-        import json, requests
+        from searchengine.models import Lesson
 
-        response = requests.put('http://127.0.0.1:9200/lesson_index/', data=json.dumps(data))
-        self.stdout.write(response.text)
-
-        model_data = ''
-        for l in Lesson.objects.all():
-            model_data += '{"index": {"_id": "%s"}}\n' % l.pk
-            model_data += json.dumps({
-                "title": l.title,
-            })+'\n'
-        response = requests.put('http://127.0.0.1:9200/lesson_index/lesson/_bulk', data=model_data)
-        self.stdout.write(response.text)
+        mapping = LessonMapping()
+        es = mapping.get_es()
+        es.indices.delete(index='lesson_index', ignore=404)
+        es.indices.create(index='lesson_index')
+        for lesson in Lesson.objects.all():
+            entry = mapping.extract_document(lesson.id)
+            es.index(index='lesson_index', doc_type='lesson-entry-type', body=entry)
