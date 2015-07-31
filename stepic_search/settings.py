@@ -103,3 +103,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+ES_URLS = ['http://localhost:9200']
+ES_INDEXES = {'default': 'lesson_index'}
