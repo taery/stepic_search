@@ -105,3 +105,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 ES_URLS = ['http://localhost:9200']
 ES_INDEXES = {'default': 'lesson_index'}
+STEPIC_API_URL = "http://stepic.org/api/lessons"

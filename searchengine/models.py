@@ -1,6 +1,7 @@
 from django.db import models
 from elasticutils.contrib.django import MappingType, Indexable
 
+
 class Lesson(models.Model):
     id = models.BigIntegerField(primary_key=True)
     title = models.CharField(max_length=255)
