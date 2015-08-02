@@ -1,23 +1,28 @@
-<!DOCTYPE html>
+{% load staticfiles %}
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>All lessons list</title>
+    <title>Stepic Lessons</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/default.css" %}" >
 </head>
 <body>
-<form action="/search/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Мне повезет"/>
-</form>
-<ul id="sortable">
-    {% for l in lessons %}
-    <li id="{{ l.id }}">
-        <div>
-            <a href="http://stepic.org/lesson/{{ l.id  }}">{{l.id}}: {{l.title }}</a>
+  <form action="/search/" method="post" class="search_with_list">
+        {% csrf_token %}
+        <div class="search">
+            {{ form }}
+            <input type="submit" value="Search" class="button"/>
         </div>
-    </li>
-    {% endfor %}
-</ul>
+  </form>
+  <div>
+    <ul class="search-list">
+        {% for l in lessons %}
+        <li id="{{ l.id }}" class="search-item">
+            <div>
+                <a href="http://stepic.org/lesson/{{ l.id  }}">{{l.title }}</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+  </div>
 </body>
 </html>
