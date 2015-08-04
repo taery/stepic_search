@@ -3,9 +3,9 @@ import os
 
 import requests
 from django.core.management.base import BaseCommand
+from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
-from searchengine.management.commands.serializers import LessonSerializer
 from searchengine.models import Lesson
 from stepic_search.settings import STEPIC_API_URL
 
@@ -20,7 +20,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if options.get('file'):
             file_to_load = os.path.abspath(options.get('file'))
-            # TODO check that file is correct
             self.stdout.write("Loads lessons from file '{}'".format(file_to_load))
             json_load = json.loads(open(file_to_load).read())
             serialize_lessons(self, json_load)
@@ -36,6 +35,12 @@ class Command(BaseCommand):
                 self.stdout.write("Page {} was loaded".format(current_page))
                 has_next = response['meta']['has_next'] and (pages_count is None or current_page < pages_count)
         self.stdout.write('{} lessons now in database'.format(Lesson.objects.count()))
+
+
+class LessonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lesson
+        fields = ('id', 'title')
 
 
 def form_next_url(current_page):

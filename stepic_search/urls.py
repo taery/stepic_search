@@ -14,13 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import url
-from searchengine.views import LessonListView
-from searchengine.views import get_search_text, get_last_page
+from searchengine.views import LessonListView, get_search_text
 
 
 urlpatterns = [
     url(r'^$', get_search_text),
     url(r'^search/$', get_search_text),
     url(r'^lessons/$', LessonListView.as_view()),
-    url(r'^thanks/$', get_last_page),
 ]

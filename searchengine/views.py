@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import ListView
 from searchengine.models import Lesson
@@ -22,13 +22,7 @@ def get_search_text(request):
                 return render(request, 'lesson_list.html', {'form': form, 'lessons': search(text_to_search)})
             else:
                 return HttpResponseRedirect('/lessons/')
-
-    # if a GET (or any other method) we'll create a blank form
     else:
         form = SearchForm()
 
     return render(request, 'search.html', {'form': form})
-
-
-def get_last_page(request):
-    return render(request, 'thanks.html')
