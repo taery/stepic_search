@@ -41,7 +41,19 @@ class LessonMapping(MappingType, Indexable):
             'lesson-entry-type': {
                 'properties': {
                     'id': {'type': 'long', 'index': 'not_analyzed'},
-                    'title': {'type': 'string', 'analyzer': 'english'}
+                    'title': {
+                        'type': 'string',
+                        "fields": {
+                            "en": {
+                                "type": "string",
+                                "analyzer": "english"
+                            },
+                            "ru": {
+                                "type": "string",
+                                "analyzer": "russian"
+                            }
+                        }
+                    }
                 }
             }
         }
