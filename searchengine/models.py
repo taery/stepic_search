@@ -38,6 +38,10 @@ class LessonMapping(MappingType, Indexable):
     @classmethod
     def get_mapping(cls):
         return {
-            'pk': {'type': 'integer'},
-            'title': {'type': 'string'}
+            'lesson-entry-type': {
+                'properties': {
+                    'id': {'type': 'long', 'index': 'not_analyzed'},
+                    'title': {'type': 'string', 'analyzer': 'english'}
+                }
+            }
         }
