@@ -6,14 +6,19 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/default.css" %}" >
 </head>
 <body>
-  <form action="/search/" method="post" class="search_with_list">
-        {% csrf_token %}
-        <div class="search">
-            {{ form }}
-            <input type="submit" value="Search" class="button"/>
-        </div>
-  </form>
-  <div>
+<form action="/search/" method="post" class="search_with_list">
+    {% csrf_token %}
+    <div class="search">
+        {{ form }}
+        <input type="submit" value="Search" class="button"/>
+    </div>
+</form>
+{% if not lessons%}
+<p class="no_results">
+  No lessons found
+</p>
+{% else %}
+<div>
     <ul class="search-list">
         {% for l in lessons %}
         <li id="{{ l.id }}" class="search-item">
@@ -23,6 +28,7 @@
         </li>
         {% endfor %}
     </ul>
-  </div>
+</div>
+{% endif %}
 </body>
 </html>

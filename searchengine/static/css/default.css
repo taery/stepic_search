@@ -55,3 +55,9 @@ a:hover{
     margin-top:0;
     position:fixed;
 }
+.no_results{
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.25em;
+    padding: 4em;
+}
