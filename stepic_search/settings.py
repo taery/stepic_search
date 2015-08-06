@@ -33,6 +33,10 @@ INSTALLED_APPS = (
     'rest_framework',
     'searchengine',
     'django.contrib.staticfiles',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
 )
 
 
