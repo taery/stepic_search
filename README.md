@@ -57,7 +57,7 @@ Let's Start
   ```
   python manage.py runserver
   ```
-6. Go to http://localhost:8000/search/ and try to search!
+6. Go to [your site](http://localhost:8000/search/) and try to search!
 
 If you need to delete lessons from your db, you can use command:
 
