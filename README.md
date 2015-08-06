@@ -9,17 +9,22 @@ Python >=3.4 required.
 
 Let's Start
 ===
-0. Install [Elasticsearch](https://www.elastic.co/downloads/elasticsearch) and other requirements:
+0. Install [Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
+ * For macos simple install:
+  ```
+  brew install elasticsearch
+  ```
+2. Install other requirements:
 
   ```
   pip install -r requirements.txt
   ```
-1. Prepare your db:
+3. Prepare your db:
 
   ```
   python manage.py migrate
   ```
-2. Load lessons in local models:
+4. Load lessons in local models:
   * From [Stepic] (http://stepic.org) by running command in project root directory:
   
     ```
@@ -42,7 +47,7 @@ Let's Start
      ]
     }
     ```
-3. Run [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html)
+5. Run [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html)
 
   ```
   $ bin/elasticsearch
@@ -52,12 +57,12 @@ Let's Start
   ```
   python manage.py createindex
   ```
-5. Run server:
+6. Run server:
 
   ```
   python manage.py runserver
   ```
-6. Go to [your site](http://localhost:8000/search/) and try to search!
+7. Go to [your site](http://localhost:8000/search/) and try to search!
 
 If you need to delete lessons from your db, you can use command:
 
