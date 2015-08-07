@@ -26,15 +26,13 @@ class LessonMapping(MappingType, Indexable):
             obj = cls.get_model().objects.get(pk=obj_id)
         return {
             'id': obj.id,
-            'title': obj.title
+            'title': obj.title,
+            'is_public': obj.is_public,
         }
 
     @classmethod
     def get_model(cls):
         return Lesson
-
-    def get_object(self):
-        return self.get_model().objects.get(pk=self._id)
 
     @classmethod
     def get_mapping(cls):
@@ -44,14 +42,14 @@ class LessonMapping(MappingType, Indexable):
                     'id': {'type': 'long', 'index': 'not_analyzed'},
                     'title': {
                         'type': 'string',
-                        "fields": {
-                            "en": {
-                                "type": "string",
-                                "analyzer": "english"
+                        'fields': {
+                            'en': {
+                                'type': 'string',
+                                'analyzer': 'english'
                             },
-                            "ru": {
-                                "type": "string",
-                                "analyzer": "russian"
+                            'ru': {
+                                'type': 'string',
+                                'analyzer': 'russian'
                             }
                         }
                     }
