@@ -40,7 +40,7 @@ class Command(BaseCommand):
 class LessonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lesson
-        fields = ('id', 'title')
+        fields = ('id', 'title', 'is_public')
 
 
 def form_next_url(current_page):
