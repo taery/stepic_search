@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 INSTALLED_APPS = (
     'rest_framework',
+    'endless_pagination',
     'searchengine',
     'django.contrib.staticfiles',
     'django.contrib.auth',
@@ -49,6 +50,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'stepic_search.urls'
@@ -103,3 +105,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 ES_URLS = ['http://localhost:9200']
 STEPIC_API_URL = "http://stepic.org/api/lessons"
+
+ENDLESS_PAGINATION_PER_PAGE = 20
