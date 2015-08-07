@@ -1,3 +1,4 @@
+{% load endless %}
 {% load staticfiles %}
 <html>
 <head lang="en">
@@ -19,15 +20,21 @@
 </p>
 {% else %}
 <div>
+    {% paginate lessons %}
     <ul class="search-list">
         {% for l in lessons %}
         <li id="{{ l.id }}" class="search-item">
             <div>
-                <a href="http://stepic.org/lesson/{{ l.id  }}">{{l.title }}</a>
+                <a href="http://stepic.org/lesson/{{ l.id  }}">{{l.title }}
+                {% if not l.is_public %}
+                    <img src="{% static "images/lock-rounded.png" %}" />
+                {% endif %}
+                </a>
             </div>
         </li>
         {% endfor %}
     </ul>
+    <div class="pages_buttons">{% show_pages %}</div>
 </div>
 {% endif %}
 </body>
