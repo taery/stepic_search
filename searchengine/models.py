@@ -5,9 +5,10 @@ from elasticutils.contrib.django import MappingType, Indexable
 class Lesson(models.Model):
     id = models.BigIntegerField(primary_key=True)
     title = models.CharField(max_length=255)
+    is_public = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.id) + ' - ' + str(self.title)
+        return "{} lesson with id {}: {}".format("Public" if self.is_public else "Private", self.id, self.title)
 
 
 class LessonMapping(MappingType, Indexable):
