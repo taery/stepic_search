@@ -30,11 +30,14 @@ Let's Start
     ```
     python manage.py loadlessons
     ```
-    This command will load all available lessons.
+    This command will load all available lessons, or you can bound loading pages count with:
+    ```
+    python manage.py loadlessons -p {pages_count}
+    ```
   * From file:
   
     ```
-    python manage.py loadlessons -f path_to_file
+    python manage.py loadlessons -f {path_to_file}
     ```
     File should be with JSON content like:
     
@@ -44,7 +47,7 @@ Let's Start
         { "id": 1, "title": "A Journey of a Thousand Miles. . ." },
         { "id": 2, "title": "Hidden Messages in the Replication Origin" },
         { "id": 3, "title": "Some Hidden Messages are More Surprising than Others" }
-     ]
+      ]
     }
     ```
 5. Run [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html)
@@ -62,7 +65,7 @@ Let's Start
   ```
   python manage.py runserver
   ```
-7. Go to [your site](http://localhost:8000/search/) and try to search!
+7. Go to [your site](http://localhost:8000/search/) and try to search! Or if you need to see all lessons, try [this link](http://localhost:8000/lessons/).
 
 If you need to delete lessons from your db, you can use command:
 
