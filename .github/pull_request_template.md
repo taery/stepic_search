@@ -1,8 +1,0 @@
-Who should approve:
-
-- [ ] 
-
-Solves issue(s): [](https://vyahhi.myjetbrains.com/youtrack/issue/)
-
-Description (and images):
-
