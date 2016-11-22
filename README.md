@@ -72,3 +72,5 @@ If you need to delete lessons from your db, you can use command:
 ```
 python manage.py clearlessons
 ```
+
+Test commit
